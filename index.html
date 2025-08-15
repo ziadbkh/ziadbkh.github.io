@@ -1,157 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Ziad Al Bkhetan - Personal page</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Ziad Al Bkhetan</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="" /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#software">Software</a></li>
-                </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziad Al-Bkhetan - Consultant | Bioinformatician | Computer Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7; /* Slightly increased line height for readability */
+            color: #333;
+            overflow: hidden; /* Hide main body scrollbar */
+        }
+        .split-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .left-panel {
+            width: 40%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto; /* Allow left panel to scroll if content is long */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 10; /* Ensure left panel stays on top */
+        }
+        .right-panel {
+            width: 60%;
+            margin-left: 40%;
+            background: #f8f9fa;
+            height: 100vh; /* Make right panel fill viewport height */
+            overflow-y: auto; /* Enable scrolling for right panel */
+            scroll-snap-type: y mandatory; /* Enable smooth scrolling with snapping */
+            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+            position: relative; /* For scroll indicator */
+            /* Subtle background pattern */
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiMwMDAwMDAiIG9wYWNpdHk9IjAuMDIiIGQ9Ik0gMCAwIDYwIDYwIDYwIDAgTCAwIDBaIi8+PHBhdGggZD0iTTI5LjU4NCAzNy40ODNDI67LjMwOCAzMi44NTMgMzEuMzQyIDIzLjEzNiAzMS4zNDIgMjMuMTM2QzQxLjE1NiAxNy4zMTMgNDYuNzI2IDExLjQ0NCA0Ni43MjYgMTEuNDQ0QzUyLjc5MiA4LjA3NSA1Ny4zMzIgNS44OTkgNTcuMzMyIDUuODk5TDI2LjY2OCAxMC42NjZMMjYuNjY4IDEwLjY2Nk0zMS4zNDIgMjMuMTM2QzMxLjM0MiAyMy4xMzYgMjcuMzA4IDMyLjg1MyAyOS41ODQgMzcuNDgzQzI5LjU4NCAzNy40ODMgNjAgNjAgNjAgNjBMNjAgMEgzMS4zNDJWMjMuMTM2Wk0yLjg4OCA2MC4wNDlMMTQuOCAuNTIgMjQuMjYyTDkuNTg0IDIxLjg4MkM4LjA2OSAyMS4zNCA2LjYwOCAyMC45MzIgNS4wNjMgMjAuNjk2TDIuODg4IDYwLjA0OUwyMi44ODggNjAuMDQ5WiIgZmlsbD0iIzc2NDMzMSIgb3BhY2l0eT0iMC4wMyIvPjwvZz48L3N2Zz4=');
+            background-size: 60px;
+            background-blend-mode: overlay;
+            background-attachment: fixed; /* Keep pattern fixed while content scrolls */
+        }
+        .profile-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            border: 4px solid rgba(255,255,255,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Added shadow to profile image */
+        }
+        .profile-section h1 {
+            font-family: 'Roboto Slab', serif; /* Heading font */
+            font-size: 2.7rem; /* Slightly larger */
+            margin-bottom: 0.5rem;
+            font-weight: 700; /* Bolder */
+            letter-spacing: 0.02em; /* Subtle letter spacing */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
+        }
+        .profile-section .title {
+            font-size: 1.25rem; /* Slightly larger */
+            opacity: 0.95; /* Less transparent */
+            margin-bottom: 2rem;
+        }
+        .nav-menu {
+            margin: 3rem 0;
+        }
+        .nav-menu ul {
+            list-style: none;
+        }
+        .nav-menu li {
+            margin-bottom: 0.75rem; /* Reduced spacing */
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.15rem; /* Slightly larger menu text */
+            padding: 1rem 0;
+            display: block;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            cursor: pointer; /* Indicate clickable */
+        }
+        .nav-menu a:hover {
+            opacity: 1;
+            border-bottom-color: rgba(255,255,255,0.7); /* Stronger highlight on hover */
+            padding-left: 1.2rem; /* More pronounced slide effect */
+        }
+        .social-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .social-section h3 {
+            font-family: 'Roboto Slab', serif; /* Heading font */
+            margin-bottom: 1.5rem;
+            font-weight: 400; /* Medium weight */
+            opacity: 0.95;
+            color: white;
+            font-size: 1.3rem; /* Slightly larger heading */
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem; /* Larger clickable area */
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow on icons */
+            cursor: pointer; /* Indicate clickable */
+        }
+        .social-links a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px) scale(1.05); /* Slight lift and scale */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* More pronounced shadow */
+        }
+        .social-links a svg {
+            width: 26px; /* Slightly larger icons */
+            height: 26px;
+            fill: currentColor;
+        }
+        .content-section {
+            width: 100%;
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+            scroll-snap-align: start;
+            box-sizing: border-box;
+        }
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1.0s; } /* Talks section */
+        .section:nth-child(6) { animation-delay: 1.2s; } /* Contact section */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            /* Gradient border for section header */
+            border-bottom: none; /* Remove default border */
+            position: relative;
+            padding-bottom: 1.5rem; /* More space for the decorative line */
+            width: 100%;
+            justify-content: center; /* Center the header text */
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px; /* Length of the line */
+            height: 4px; /* Thickness of the line */
+            background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%); /* Gradient line */
+            border-radius: 2px;
+        }
+        .section h2 {
+            font-family: 'Roboto Slab', serif; /* Heading font */
+            color: #1e3c72;
+            font-size: 2.2rem; /* Slightly larger */
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider min width */
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .research-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Softer, larger shadow */
+            border-left: 5px solid #2a5298; /* Thicker border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .research-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2); /* Stronger shadow on hover */
+        }
+        .research-item h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem; /* Slightly larger */
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem; /* Slightly larger */
+            font-weight: 500;
+        }
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            width: 100%;
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            flex-basis: 280px; /* Adjusted flex basis */
+            flex-grow: 1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Stronger subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-item:hover {
+            transform: translateY(-7px); /* More pronounced lift */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Stronger shadow */
+        }
+        .contact-item strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem; /* Larger heading */
+        }
+        .contact-item span {
+            font-size: 1.05rem; /* Slightly larger text */
+            color: #555;
+        }
+        .github-repos-list {
+            margin-top: 2rem;
+            display: grid;
+            /* Adjusted minmax value to allow more items per line */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding-right: 1rem;
+            background-color: #e0f2f7;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .github-repo-item {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+            border: 1px solid #cce7f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .github-repo-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .github-repo-item h4 {
+            font-weight: 700;
+            color: #1a4270;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        .github-repo-item p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+            max-height: 5em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .github-repo-item a {
+            color: #2a5298;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: auto;
+            cursor: pointer;
+        }
+        .github-repo-item a:hover {
+            text-decoration: underline;
+            color: #1e3c72;
+        }
+        /* Scroll Progress Indicator */
+        .scroll-progress-indicator {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 8px; /* Thickness of the indicator */
+            height: 0%; /* Will be controlled by JS */
+            background: linear-gradient(to bottom, #2a5298, #1e3c72); /* Gradient fill */
+            z-index: 100; /* Ensure it's on top */
+            border-radius: 4px;
+            transition: height 0.1s ease-out; /* Smooth transition for height changes */
+        }
+        /* Professional History Specific Styles */
+        .history-list {
+            list-style: none;
+            margin-top: 2rem;
+            padding: 0;
+            width: 100%;
+        }
+        .history-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea; /* A different accent color for history */
+            position: relative;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .history-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .history-item::before {
+            content: '';
+            position: absolute;
+            left: -12px; /* Position next to the border */
+            top: 2rem;
+            width: 15px;
+            height: 15px;
+            background-color: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .history-item h3 {
+            font-family: 'Roboto Slab', serif;
+            color: #1e3c72;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        /* Adjusted styling for concise text */
+        .history-item .summary {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-top: 1rem;
+        }
+        .history-item .role, .history-item .duration {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.25rem; /* Reduced margin */
+            display: block;
+        }
+        /* Removed ul styling for history items */
+        .history-item ul {
+            display: none; /* Hide default list style, content is now in summary */
+        }
+        /* Styles for Talks Section */
+        .talks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            width: 100%;
+        }
+        .talk-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c; /* Red accent for talks */
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .talk-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+        /* Distinct style for podcast talk - NEW */
+        .talk-item.podcast-special-highlight {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Dark blue gradient */
+            color: white; /* White text for contrast */
+            border-left: 5px solid #28a745; /* Still a green accent line */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* More pronounced shadow */
+            position: relative; /* For the "Podcast" badge */
+        }
+        .talk-item.podcast-special-highlight:hover {
+            transform: translateY(-12px); /* Even more lift on hover */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4); /* Stronger shadow */
+        }
+        .talk-item.podcast-special-highlight h3,
+        .talk-item.podcast-special-highlight p {
+            color: white; /* Ensure text is white */
+        }
+        .talk-item.podcast-special-highlight a {
+            color: #87ceeb; /* Lighter blue for link in dark background */
+        }
+        .talk-item.podcast-special-highlight a:hover {
+            color: #aaddff; /* Even lighter on hover */
+        }
+        .podcast-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #28a745; /* Green badge */
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .talk-item h3 {
+            font-family: 'Roboto Slab', serif;
+            color: #1e3c72;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .talk-item p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+        .talk-item a {
+            color: #e74c3c; /* Red link color */
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .talk-item a:hover {
+            text-decoration: underline;
+            color: #c0392b; /* Darker red on hover */
+        }
+        @media (max-width: 1024px) {
+            .split-container {
+                flex-direction: column;
+            }
+            .left-panel {
+                width: 100%;
+                position: relative;
+                height: auto;
+                padding: 2rem;
+            }
+            .right-panel {
+                width: 100%;
+                margin-left: 0;
+                height: auto;
+                scroll-snap-type: none; /* Disable snapping on mobile */
+            }
+            .content-section {
+                padding: 2rem 1.5rem;
+            }
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+            .section {
+                min-height: auto; /* No full height on mobile */
+                padding: 2rem 1.5rem;
+                justify-content: flex-start; /* Reset vertical centering */
+                scroll-snap-align: none; /* Disable snapping on mobile */
+            }
+            .github-repos-list, .talks-grid { /* Apply for both grids */
+                max-height: none;
+                overflow-y: visible;
+                padding-right: 0;
+                padding: 1rem;
+            }
+            .github-repo-item, .talk-item { /* Apply for both grid items */
+                padding: 1rem;
+            }
+            .contact-item {
+                flex-basis: 100%;
+                padding: 1rem;
+            }
+            .scroll-progress-indicator {
+                display: none; /* Hide scroll indicator on mobile */
+            }
+            .history-item::before {
+                left: 0px; /* Adjust position for mobile layout */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="split-container">
+        <div class="left-panel">
+            <div class="profile-section">
+                <div class="profile-image">ZA</div>
+                <h1>Ziad Al-Bkhetan</h1>
+                <p class="title">Computer Scientist | Bioinformatician | Consultant</p>
             </div>
-        </nav>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Ziad
-                        <span class="text-primary">Al Bkhetan</span>
-                    </h1>
-                    <div class="subheading mb-5">
-                        Melbourne, Australia.
-                        <a href="">black.orange@gmail.com</a>
-						<p><small>(Replace black and orange by the corresponding part of my name without spaces).</small></p>
-                    </div>
-					
-					
-                    <p class="lead mb-5">I am a researcher in bioinformatics, machine learning and data science. I received my PhD in 2021 from the School of Computing and Information Systems, the University of Melbourne. My research interests involve applying computational methods, including machine learning and statistical modelling, to genomic problems such as genetic associations with phenotypes and the prediction of chromatin interactions. In addition, I have strong software engineering expertise including web/desktop application development, databases and GPU programming.</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://scholar.google.pl/citations?user=kEeumloAAAAJ&hl=en"><i class="fas fa-user-graduate"></i></a>
-                        <a class="social-icon" href="https://github.com/ziadbkh/"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="https://au.linkedin.com/in/ziad-al-bkhetan-2427bb44"><i class="fab fa-linkedin-in"></i></a>
-                        
-                    </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#about">→ About Me</a></li>
+                    <li><a href="#softwares">→ Softwares</a></li>
+                    <li><a href="#talks">→ Talks</a></li>
+                    <li><a href="#contact">→ Contact Info</a></li>
+                </ul>
+            </nav>
+            <div class="social-section">
+                <div class="social-links">
+                    <a href="https://github.com/ziadbkh" target="_blank" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.82-.259.82-.578v-2.073c-3.338.724-4.043-1.611-4.043-1.611-.546-1.385-1.332-1.755-1.332-1.755-1.09-.744.083-.729.083-.729 1.205.085 1.838 1.238 1.838 1.238 1.07 1.83 2.809 1.303 3.492.997.108-.775.42-1.303.762-1.604-2.665-.304-5.466-1.33-5.466-5.931 0-1.312.469-2.383 1.236-3.221-.124-.304-.536-1.523.117-3.176 0 0 1.008-.323 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.293-1.553 3.3-1.23 3.3-1.23.653 1.653.24 2.872.117 3.176.77.838 1.235 1.909 1.235 3.221 0 4.61-2.806 5.624-5.474 5.92.43.37.817 1.102.817 2.224v3.292c0 .323.21.696.828.577C20.565 21.802 24 17.302 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="https://au.linkedin.com/in/ziad-al-bkhetan-2427bb44" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="https://scholar.google.pl/citations?user=kEeumloAAAAJ&hl=en" target="_blank" aria-label="Google Scholar">
+                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 3L1 9l11 6 11-6L12 3zm0 10.36L3.27 8.73 12 4.09l8.73 4.64L12 13.36zm0 2.28L1 18.5l11 3.5 11-3.5-11-2.86zm0 1.95L3.27 15.54 12 20.27l8.73-4.73L12 17.59z"/>
+                        </svg>
+                    </a>
                 </div>
-            </section>
-            <hr class="m-0" />
-           <!-- Interests-->
-            <section class="resume-section" id="interests">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Interests and Expertise</h2>
-                    <div class="subheading mb-3">Machine Learning and Data Science</div>
-                    <ul class="fa-ul mb-0">
-						<li ><span class="fa-li"><i class="fas fa-check"></i></span>Data cleansing and preparation for analysis including data migration from relational databases to data warehouse.</li>
-						<li ><span class="fa-li"><i class="fas fa-check"></i></span>Experience in classification, regression, clustering and association rules.</li>
-						<li ><span class="fa-li"><i class="fas fa-check"></i></span>Feature selection and dimensionality reduction.</li>
-						<li ><span class="fa-li"><i class="fas fa-check"></i></span>Statistical assessment and multiple test correction.</li>
-                    </ul>
-					<br/>
-					<div class="subheading mb-3">Bioinformatics and Computational Biology</div>
-                    <ul class="fa-ul mb-0">
-                        <li ><span class="fa-li"><i class="fas fa-check"></i></span>Genetic association with diseases (Genotype/Haplotype).</li>
-    					<li ><span class="fa-li"><i class="fas fa-check"></i></span>Population based haplotype phasing or estimation.</li>
-						<li ><span class="fa-li"><i class="fas fa-check"></i></span>Chromatin Interaction prediction and three-dimensional genomic structure.</li>
-                    </ul>
-					
-                </div>
-            </section>
-            <hr class="m-0" />
-			
-			<!-- Skills-->
-            <section class="resume-section" id="skills">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Skills</h2>
-                    <div class="subheading mb-3">Programming Languages</div>
-                    <ul class="fa-ul mb-0">
-                        <li ><span class="fa-li"><i class="fas fa-check"></i></span>Currently: R and Python</li>
-						<li ><span class="fa-li"><i class="fas fa-check"></i></span>I also have developed projects using: C++, C#, Java and php</li>
-                    </ul>
-					<br/>
-					<div class="subheading mb-3">Database management Systems</div>
-                    <ul class="fa-ul mb-0">
-                        <li ><span class="fa-li"><i class="fas fa-check"></i></span>Mainly: MySQL </li>
-						<li ><span class="fa-li"><i class="fas fa-check"></i></span>I also have used: MS SQL Server, and ORACLE</li>
-                    </ul>
-					<br/>
-					<div class="subheading mb-3">GPU Progaramming</div>
-                    <ul class="fa-ul mb-0">
-                        <li ><span class="fa-li"><i class="fas fa-check"></i></span>CUDA </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-			
-            <section class="resume-section" id="software">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Software</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0"><a href="https://github.com/ziadbkh/eQTLHap"> eQTLHap </a></h3>
-                            <div class="subheading mb-3"></div>
-                            <p>eQTLHap is a comprehensive eQTL analysis tool that scans the genome for three kinds of associations:
-                                <ol>
-                                  <li>Associations with single SNP similar to standard eQTL analysis.</li>
-                                  <li>Associations with a block of SNPs encoded by their phased haplotypes.</li>
-                                  <li>Associations with a block of SNPs encoded by their genotypes.</li>
-                                </ol> 
-                                eQTLHap is implemented in R and it depends on matrices operations to calculate correlation coefficients. It adapts the <a href="http://www.bios.unc.edu/research/genomic_software/Matrix_eQTL/">ultra-fast Matrix eQTL </a> to deal with blocks and to maintain high speed.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">July 2020</span></div>
-                    </div>
-                    
-				<div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0"><a href="https://github.com/ziadbkh/consHap"> consHap </a></h3>
-                            <div class="subheading mb-3"></div>
-                            <p>consHap is a majority voting approach to construct consensus haplotype estimator from multiple phased haplotypes.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">July 2020</span></div>
-                    </div>
-				
-				<div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0"><a href="https://bitbucket.org/4dnucleome/3depiloop"> 3DEpiLoop </a></h3>
-                            <div class="subheading mb-3"></div>
-                            <p>3DEpiLoop is a tool for chromatin Interactions prediction.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">February 2018</span></div>
-                    </div>
-			
-                </div>
-            </section>
-            <hr class="m-0" />
-			
+            </div>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        <div class="right-panel" id="right-panel">
+            <div class="scroll-progress-indicator" id="scroll-progress-indicator"></div>
+            <div class="content-section">
+                <div class="section" id="about">
+                    <div class="section-header">
+                        <h2>About Me</h2>
+                    </div>
+                    <p>I am a researcher with expertise in computer science and bioinformatics, including a PhD from the School of Computing and Information Systems at the University of Melbourne. My work focuses on developing and applying computational and statistical approaches to complex challenges in the life sciences, particularly in medical and biological data analysis.
+
+I also have extensive experience in software engineering and high-performance computing, enabling the design of scalable, efficient solutions for scientific applications.</p>
+                    <div class="tech-stack">
+                        <div class="tech-tag">Software Engineering</div>
+                        <div class="tech-tag">Bioinformatics</div>
+                        <div class="tech-tag">Machine Learning</div>
+                        <div class="tech-tag">Nextflow</div>
+                    </div>
+                </div>
+                <div class="section" id="softwares">
+                    <div class="section-header">
+                        <h2>Softwares</h2>
+                    </div>
+                    <p>Here is a list of public software projects I have developed or was a major contributor to. A comprehensive list is available in my Github account. </p>
+                    <div class="github-repos-list" id="github-repos-list">
+                    <div class="github-repo-item">
+                            <h4><a href="https://github.com/sagc-bioinformatics/mgikit" target="_blank" rel="noopener noreferrer">mgikit</a></h4>
+                            <p>mgikit is a collection of tools used to demultiplex fastq files and generate demultiplexing and quality reports.</p>
+                            <a href="https://github.com/sagc-bioinformatics/mgikit" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                        </div>
+                        <div class="github-repo-item">
+                            <h4><a href="https://github.com/nf-core/proteinfold" target="_blank" rel="noopener noreferrer">proteinfold</a></h4>
+                            <p>Protein 3D structure prediction pipeline.</p>
+                            <a href="https://github.com/nf-core/proteinfold" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                        </div>
+                        <div class="github-repo-item">
+                            <h4><a href="https://github.com/ziadbkh/eQTLHap" target="_blank" rel="noopener noreferrer">eQTLHap</a></h4>
+                            <p>eQTLHap: a comprehensive eQTL analysis tool.</p>
+                            <a href="https://github.com/ziadbkh/eQTLHap" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                        </div>
+                        <div class="github-repo-item">
+                            <h4><a href="https://github.com/Australian-Structural-Biology-Computing/wisps" target="_blank" rel="noopener noreferrer">wisps</a></h4>
+                            <p>Workflow for Interaction Screening by Predicting Structures.</p>
+                            <a href="https://github.com/Australian-Structural-Biology-Computing/wisps" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                        </div>
+                        <div class="github-repo-item">
+                            <h4><a href="https://github.com/ziadbkh/consHap" target="_blank" rel="noopener noreferrer">consHap</a></h4>
+                            <p>Majority voting method to construct consensus haplotype estimator from multiple phased haplotypes.</p>
+                            <a href="https://github.com/ziadbkh/consHap" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                        </div>
+                                              
+                        <div class="github-repo-item">
+                            <h4><a href="https://github.com/AusARG/pipesnake" target="_blank" rel="noopener noreferrer">pipesnake</a></h4>
+                            <p>ausarg/pipesnake is a bioinformatics best-practice analysis pipeline for phylogenomic reconstruction starting from short-read 'second-generation' sequencing data.</p>
+                            <a href="https://github.com/AusARG/pipesnake" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="section" id="talks">
+                    <div class="section-header">
+                        <h2>Talks</h2>
+                    </div>
+                    <p>Here are some of my recorded talks and presentations available online:</p>
+                    <div class="talks-grid">
+                        <div class="talk-item podcast-special-highlight">
+                            <span class="podcast-badge">Podcast</span>
+                            <h3>The Nextflow Podcast Ep. 52: Australian BioCommons</h3>
+                            <p>Guest appearance discussing how Australia is building a world-class national bioinformatics infrastructure and supporting Australian Nextflow users.</p>
+                            <a href="https://community.seqera.io/t/nextflow-podcast-ep-52-australian-biocommons/2171" target="_blank" rel="noopener noreferrer">Access the podcast
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                            </a>
+                        </div>
+                        <div class="talk-item">
+                            <h3>The Australian ProteinFold service</h3>
+                            <p>Interactive prediction and visualisation of protein structure.</p>
+                            <a href="https://summit.nextflow.io/2024/barcelona/agenda/10-30--the-australian-proteinfold-service-interactive" target="_blank" rel="noopener noreferrer">Watch on YouTube
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                            </a>
+                        </div>
+                        <div class="talk-item">
+                            <h3>Introduction to the Australian BioCommons Leadership Share (ABLeS)</h3>
+                            <p>ABLeS provides computational resources, specialist expertise, and a shared repository of tools and software, tailored to support life science researchers.</p>
+                            <a href="https://www.youtube.com/watch?v=fvUfzpaHz3U" target="_blank" rel="noopener noreferrer">Watch on YouTube
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                            </a>
+                        </div>
+                        <div class="talk-item">
+                            <h3>The Australian Nextflow Seqera Service launch</h3>
+                            <p>Introducing the Australian Nextflow Seqera Service at the ABACBS National Seminar Series.</p>
+                            <a href="https://www.youtube.com/watch?v=BejSbL8ayi0" target="_blank" rel="noopener noreferrer">Watch on YouTube
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="section" id="contact">
+                    <div class="section-header">
+                        <h2>Contact Information</h2>
+                    </div>
+                    <p>I'm always interested in discussing research collaborations, speaking opportunities, or potential industry partnerships. Feel free to reach out if you'd like to connect!</p>
+                    <div class="contact-card">
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <strong>Email</strong>
+                                <span>ziad.albkhetan@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Location</strong>
+                                <span>Melbourne, Victoria, Australia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the right-panel element which is the scroll container
+        const rightPanel = document.querySelector('.right-panel');
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        // Get the scroll progress indicator
+        const scrollProgressIndicator = document.getElementById('scroll-progress-indicator');
+        // Function to update scroll progress indicator
+        function updateScrollProgress() {
+            if (!rightPanel || !scrollProgressIndicator) return; // Exit if elements are not found
+            const scrollHeight = rightPanel.scrollHeight - rightPanel.clientHeight;
+            const scrollTop = rightPanel.scrollTop;
+            let progress = 0;
+            if (scrollHeight > 0) {
+                progress = (scrollTop / scrollHeight) * 100;
+            }
+            scrollProgressIndicator.style.height = progress + '%';
+        }
+        // Add scroll event listener to the right-panel
+        rightPanel.addEventListener('scroll', updateScrollProgress);
+        // Initial update when the page loads
+        document.addEventListener('DOMContentLoaded', updateScrollProgress);
+        // Add click event listener to each link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor jump
+                const targetId = this.getAttribute('href'); // Get the href (e.g., "#about")
+                const targetSection = document.querySelector(targetId); // Find the corresponding section
+                if (targetSection && rightPanel) {
+                    // Calculate the scroll position relative to the right-panel's top
+                    rightPanel.scrollTo({
+                        top: targetSection.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        // The JavaScript function fetchGitHubRepos and its invocation have been removed
+        // as the content is now hardcoded.
+    </script>
+</body>
 </html>
